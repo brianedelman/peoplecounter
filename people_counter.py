@@ -94,6 +94,7 @@ direction_moving = None
 # start the frames per second throughput estimator
 fps = FPS().start()
 
+gray = None
 avg = None
 
 # loop over frames from the video stream
@@ -120,7 +121,7 @@ while True:
     # gray = cv2.GaussianBlur(gray, (21, 21), 0)
 
     # if the average frame is None, initialize it
-    if avg is None:
+    if avg is None and gray and gray:
         print("[INFO] starting background model...")
         avg = gray.copy().astype("float")
         continue
